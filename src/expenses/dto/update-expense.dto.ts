@@ -42,7 +42,7 @@ export function validateUpdateExpenseDto(data: any): UpdateExpenseDto {
     if (typeof date !== 'string' || date.trim().length === 0) {
       throw new Error('Date must be a non-empty string');
     }
-    
+
     // Validate date format
     const dateObj = new Date(date);
     if (isNaN(dateObj.getTime())) {
@@ -52,4 +52,4 @@ export function validateUpdateExpenseDto(data: any): UpdateExpenseDto {
   }
 
   return updateData;
-} 
+}

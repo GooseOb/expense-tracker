@@ -1,5 +1,10 @@
 import { PrismaClient } from '@prisma/client';
-import { Expense, CreateExpenseData, UpdateExpenseData, ExpenseFilters } from './entity/expense.entity';
+import {
+  Expense,
+  CreateExpenseData,
+  UpdateExpenseData,
+  ExpenseFilters,
+} from './entity/expense.entity';
 import logger from '../helpers/Logger';
 
 export class ExpensesRepository {
@@ -56,7 +61,9 @@ export class ExpensesRepository {
         ...(filters.limit && { take: filters.limit }),
       });
 
-      logger.info('Expenses retrieved successfully', { count: expenses.length });
+      logger.info('Expenses retrieved successfully', {
+        count: expenses.length,
+      });
       return expenses;
     } catch (error) {
       logger.error('Failed to retrieve expenses:', error);
@@ -93,7 +100,10 @@ export class ExpensesRepository {
       logger.info('Expense updated successfully', { id });
       return expense;
     } catch (error) {
-      if (error instanceof Error && error.message.includes('Record to update not found')) {
+      if (
+        error instanceof Error &&
+        error.message.includes('Record to update not found')
+      ) {
         logger.warn('No expense found to update', { id });
         return null;
       }
@@ -111,7 +121,10 @@ export class ExpensesRepository {
       logger.info('Expense deleted successfully', { id });
       return true;
     } catch (error) {
-      if (error instanceof Error && error.message.includes('Record to delete does not exist')) {
+      if (
+        error instanceof Error &&
+        error.message.includes('Record to delete does not exist')
+      ) {
         logger.warn('No expense found to delete', { id });
         return false;
       }

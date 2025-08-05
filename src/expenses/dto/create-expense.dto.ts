@@ -17,11 +17,19 @@ export function validateCreateExpenseDto(data: any): CreateExpenseDto {
     throw new Error('Amount is required and must be a positive number');
   }
 
-  if (!currency || typeof currency !== 'string' || currency.trim().length === 0) {
+  if (
+    !currency ||
+    typeof currency !== 'string' ||
+    currency.trim().length === 0
+  ) {
     throw new Error('Currency is required and must be a non-empty string');
   }
 
-  if (!category || typeof category !== 'string' || category.trim().length === 0) {
+  if (
+    !category ||
+    typeof category !== 'string' ||
+    category.trim().length === 0
+  ) {
     throw new Error('Category is required and must be a non-empty string');
   }
 
@@ -42,4 +50,4 @@ export function validateCreateExpenseDto(data: any): CreateExpenseDto {
     category: category.trim(),
     date: date.trim(),
   };
-} 
+}

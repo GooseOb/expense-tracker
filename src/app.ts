@@ -1,8 +1,14 @@
 import express from 'express';
 import { config } from './config';
 import { ExpensesController } from './expenses/expenses.controller';
-import { errorHandler, notFoundHandler } from './helpers/middlewares/errorHandler';
-import { validateIdParam, validateDateRange } from './helpers/middlewares/validator';
+import {
+  errorHandler,
+  notFoundHandler,
+} from './helpers/middlewares/errorHandler';
+import {
+  validateIdParam,
+  validateDateRange,
+} from './helpers/middlewares/validator';
 import logger from './helpers/Logger';
 
 const app = express();
@@ -21,11 +27,30 @@ app.get('/api/ping', (_req, res) => {
 });
 
 // Expense routes
-app.post('/api/expenses', expensesController.createExpense.bind(expensesController));
-app.get('/api/expenses', validateDateRange, expensesController.getAllExpenses.bind(expensesController));
-app.get('/api/expenses/:id', validateIdParam, expensesController.getExpenseById.bind(expensesController));
-app.patch('/api/expenses/:id', validateIdParam, expensesController.updateExpense.bind(expensesController));
-app.delete('/api/expenses/:id', validateIdParam, expensesController.deleteExpense.bind(expensesController));
+app.post(
+  '/api/expenses',
+  expensesController.createExpense.bind(expensesController)
+);
+app.get(
+  '/api/expenses',
+  validateDateRange,
+  expensesController.getAllExpenses.bind(expensesController)
+);
+app.get(
+  '/api/expenses/:id',
+  validateIdParam,
+  expensesController.getExpenseById.bind(expensesController)
+);
+app.patch(
+  '/api/expenses/:id',
+  validateIdParam,
+  expensesController.updateExpense.bind(expensesController)
+);
+app.delete(
+  '/api/expenses/:id',
+  validateIdParam,
+  expensesController.deleteExpense.bind(expensesController)
+);
 
 // 404 handler
 app.use(notFoundHandler);
@@ -39,4 +64,4 @@ export function start(): void {
   });
 }
 
-export default app; 
+export default app;

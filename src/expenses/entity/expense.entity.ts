@@ -31,4 +31,4 @@ export interface ExpenseFilters {
   category?: string;
   limit?: number;
   offset?: number;
-} 
+}

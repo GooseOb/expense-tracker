@@ -53,11 +53,13 @@ tests/
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Copy environment variables:
+
    ```bash
    cp .env.example .env
    ```
@@ -70,6 +72,7 @@ tests/
 ### Development
 
 Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -90,9 +93,11 @@ The server will start on port 3000 (or the port specified in your .env file).
 ## API Endpoints
 
 ### Health Check
+
 - `GET /api/ping` - Health check endpoint
 
 ### Expenses
+
 - `POST /api/expenses` - Create a new expense
 - `GET /api/expenses` - Get all expenses (with optional filtering)
 - `GET /api/expenses/:id` - Get expense by ID
@@ -100,6 +105,7 @@ The server will start on port 3000 (or the port specified in your .env file).
 - `DELETE /api/expenses/:id` - Delete expense
 
 ### Query Parameters for GET /api/expenses
+
 - `fromDate` - Filter expenses from this date
 - `toDate` - Filter expenses to this date
 - `category` - Filter by category
@@ -115,11 +121,13 @@ The server will start on port 3000 (or the port specified in your .env file).
 ## Testing
 
 Run tests:
+
 ```bash
 npm test
 ```
 
 Run tests with coverage:
+
 ```bash
 npm test -- --coverage
 ```
@@ -129,4 +137,4 @@ npm test -- --coverage
 1. Follow the existing code style
 2. Add tests for new features
 3. Ensure all tests pass
-4. Run linting and formatting before committing 
+4. Run linting and formatting before committing

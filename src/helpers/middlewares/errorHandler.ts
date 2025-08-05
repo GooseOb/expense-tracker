@@ -34,4 +34,4 @@ export function notFoundHandler(_req: Request, res: Response): void {
     error: 'Route not found',
     statusCode: 404,
   });
-} 
+}
