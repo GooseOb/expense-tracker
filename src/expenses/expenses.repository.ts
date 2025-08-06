@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client';
 import {
   Expense,
   CreateExpenseData,
@@ -6,17 +5,12 @@ import {
   ExpenseFilters,
 } from './entity/expense.entity';
 import logger from '../helpers/Logger';
+import { prismaClient } from '../prisma';
 
 export class ExpensesRepository {
-  private prisma: PrismaClient;
-
-  constructor() {
-    this.prisma = new PrismaClient();
-  }
-
   async create(data: CreateExpenseData): Promise<Expense> {
     try {
-      const expense = await this.prisma.expense.create({
+      const expense = await prismaClient.expense.create({
         data: {
           name: data.name,
           amount: data.amount,
@@ -52,7 +46,7 @@ export class ExpensesRepository {
         where.category = filters.category;
       }
 
-      const expenses = await this.prisma.expense.findMany({
+      const expenses = await prismaClient.expense.findMany({
         where,
         orderBy: {
           date: 'desc',
@@ -73,7 +67,7 @@ export class ExpensesRepository {
 
   async findById(id: number): Promise<Expense | null> {
     try {
-      const expense = await this.prisma.expense.findUnique({
+      const expense = await prismaClient.expense.findUnique({
         where: { id },
       });
 
@@ -92,7 +86,7 @@ export class ExpensesRepository {
 
   async update(id: number, data: UpdateExpenseData): Promise<Expense | null> {
     try {
-      const expense = await this.prisma.expense.update({
+      const expense = await prismaClient.expense.update({
         where: { id },
         data,
       });
@@ -114,7 +108,7 @@ export class ExpensesRepository {
 
   async delete(id: number): Promise<boolean> {
     try {
-      await this.prisma.expense.delete({
+      await prismaClient.expense.delete({
         where: { id },
       });
 
@@ -134,6 +128,6 @@ export class ExpensesRepository {
   }
 
   async disconnect(): Promise<void> {
-    await this.prisma.$disconnect();
+    await prismaClient.$disconnect();
   }
 }
