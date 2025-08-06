@@ -16,9 +16,9 @@ model Expense {
   amount    Float
   currency  String
   category  String
-  date      String
+  date      DateTime
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("expenses")
-} 
+}

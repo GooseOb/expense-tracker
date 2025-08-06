@@ -4,7 +4,7 @@ export interface Expense {
   amount: number;
   currency: string;
   category: string;
-  date: string;
+  date: Date;
   created_at?: string;
   updated_at?: string;
 }
