@@ -11,6 +11,14 @@ export class ExpensesController {
     this.service = new ExpensesService();
   }
 
+  /**
+   * Creates a new expense based on the provided data.
+   * @param req - The Express request object containing the expense data in the body.
+   * @param res - The Express response object used to send the created expense.
+   * @param next - The Express next function to pass errors to the error handler.
+   * @throws {ValidationException} If the provided data fails validation.
+   * @returns {Promise<void>} Resolves with a 201 response containing the created expense.
+   */
   async createExpense(
     req: Request,
     res: Response,
@@ -33,6 +41,13 @@ export class ExpensesController {
     }
   }
 
+  /**
+   * Retrieves a list of expenses based on optional query filters.
+   * @param req - The Express request object containing query parameters (fromDate, toDate, category, limit, offset).
+   * @param res - The Express response object used to send the list of expenses.
+   * @param next - The Express next function to pass errors to the error handler.
+   * @returns {Promise<void>} Resolves with a 200 response containing the expenses and metadata.
+   */
   async getAllExpenses(
     req: Request,
     res: Response,
@@ -64,6 +79,13 @@ export class ExpensesController {
     }
   }
 
+  /**
+   * Retrieves a single expense by its ID.
+   * @param req - The Express request object containing the expense ID in params.
+   * @param res - The Express response object used to send the expense data.
+   * @param next - The Express next function to pass errors to the error handler.
+   * @returns {Promise<void>} Resolves with a 200 response containing the expense data.
+   */
   async getExpenseById(
     req: Request,
     res: Response,
@@ -82,6 +104,14 @@ export class ExpensesController {
     }
   }
 
+  /**
+   * Updates an existing expense by its ID with the provided data.
+   * @param req - The Express request object containing the expense ID in params and update data in the body.
+   * @param res - The Express response object used to send the updated expense.
+   * @param next - The Express next function to pass errors to the error handler.
+   * @throws {ValidationException} If the provided data fails validation.
+   * @returns {Promise<void>} Resolves with a 200 response containing the updated expense.
+   */
   async updateExpense(
     req: Request,
     res: Response,
@@ -105,6 +135,13 @@ export class ExpensesController {
     }
   }
 
+  /**
+   * Deletes an expense by its ID.
+   * @param req - The Express request object containing the expense ID in params.
+   * @param res - The Express response object used to send a 204 status.
+   * @param next - The Express next function to pass errors to the error handler.
+   * @returns {Promise<void>} Resolves with a 204 response indicating successful deletion.
+   */
   async deleteExpense(
     req: Request,
     res: Response,
