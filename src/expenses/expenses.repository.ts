@@ -6,6 +6,7 @@ import {
 } from './entity/expense.entity';
 import logger from '../helpers/Logger';
 import { prismaClient } from '../prisma';
+import { Prisma } from '@prisma/client';
 
 export class ExpensesRepository {
   async create(data: CreateExpenseData): Promise<Expense> {
@@ -30,7 +31,7 @@ export class ExpensesRepository {
 
   async findAll(filters: ExpenseFilters = {}): Promise<Expense[]> {
     try {
-      const where: any = {};
+      const where: Prisma.ExpenseWhereInput = {};
 
       if (filters.fromDate || filters.toDate) {
         where.date = {};
