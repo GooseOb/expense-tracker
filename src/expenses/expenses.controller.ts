@@ -42,11 +42,11 @@ export class ExpensesController {
       const { fromDate, toDate, category, limit, offset } = req.query;
 
       const filters = {
-        ...(fromDate && { fromDate: fromDate as string }),
-        ...(toDate && { toDate: toDate as string }),
-        ...(category && { category: category as string }),
-        ...(limit && { limit: parseInt(limit as string, 10) }),
-        ...(offset && { offset: parseInt(offset as string, 10) }),
+        ...(fromDate && { fromDate: fromDate.toString() }),
+        ...(toDate && { toDate: toDate.toString() }),
+        ...(category && { category: category.toString() }),
+        ...(limit && { limit: parseInt(limit.toString(), 10) }),
+        ...(offset && { offset: parseInt(offset.toString(), 10) }),
       };
 
       const expenses = await this.service.getAllExpenses(filters);
