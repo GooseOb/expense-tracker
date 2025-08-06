@@ -1,3 +1,9 @@
+import {
+  isNonEmptyString,
+  isPositiveNumber,
+  isValidDateString,
+} from '../../helpers/validationUtils';
+
 export interface UpdateExpenseDto {
   name?: string;
   amount?: number;
@@ -6,46 +12,46 @@ export interface UpdateExpenseDto {
   date?: string;
 }
 
-export function validateUpdateExpenseDto(data: any): UpdateExpenseDto {
+export function validateUpdateExpenseDto(
+  data: Record<string, unknown>
+): UpdateExpenseDto {
   const { name, amount, currency, category, date } = data;
   const updateData: UpdateExpenseDto = {};
 
   if (name !== undefined) {
-    if (typeof name !== 'string' || name.trim().length === 0) {
+    if (!isNonEmptyString(name)) {
       throw new Error('Name must be a non-empty string');
     }
     updateData.name = name.trim();
   }
 
   if (amount !== undefined) {
-    if (typeof amount !== 'number' || amount <= 0) {
+    if (!isPositiveNumber(amount)) {
       throw new Error('Amount must be a positive number');
     }
     updateData.amount = amount;
   }
 
   if (currency !== undefined) {
-    if (typeof currency !== 'string' || currency.trim().length === 0) {
+    if (!isNonEmptyString(currency)) {
       throw new Error('Currency must be a non-empty string');
     }
     updateData.currency = currency.trim();
   }
 
   if (category !== undefined) {
-    if (typeof category !== 'string' || category.trim().length === 0) {
+    if (!isNonEmptyString(category)) {
       throw new Error('Category must be a non-empty string');
     }
     updateData.category = category.trim();
   }
 
   if (date !== undefined) {
-    if (typeof date !== 'string' || date.trim().length === 0) {
+    if (!isNonEmptyString(date)) {
       throw new Error('Date must be a non-empty string');
     }
 
-    // Validate date format
-    const dateObj = new Date(date);
-    if (isNaN(dateObj.getTime())) {
+    if (!isValidDateString(date)) {
       throw new Error('Date must be a valid date string');
     }
     updateData.date = date.trim();
