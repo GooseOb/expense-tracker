@@ -1,0 +1,12 @@
+node_modules/
+build/
+dist/
+coverage/
+*.log
+.env
+.env.*
+*.db
+*.sqlite
+*.sqlite3
+package-lock.json
+yarn.lock 
