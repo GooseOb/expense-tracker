@@ -1,4 +1,13 @@
+npm run build
 npm run format
 npm run lint
 npm run test
+
+cd frontend
+npm run build
+npm run format
+npm run lint
+npm run stylelint
+cd ..
+
 git add -A .
