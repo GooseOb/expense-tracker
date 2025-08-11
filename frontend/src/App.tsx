@@ -1,4 +1,5 @@
 import { Button } from './components/Button';
+import { DatePicker } from './components/DatePicker';
 import { Icon } from './components/Icon';
 import { Input } from './components/Input';
 import { InputLabel } from './components/InputLabel';
@@ -6,6 +7,10 @@ import { Loader } from './components/Loader';
 import { Logo } from './components/Logo';
 
 function App() {
+  const selectedDate: string = '2023-10-01';
+  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('Selected date:', event.target.value);
+  };
   return (
     <>
       <Logo />
@@ -34,6 +39,8 @@ function App() {
       />
       <Icon iconName="plus" size={15} color="white" />
       <Icon iconName="plus" />
+      <DatePicker value={selectedDate} onChange={handleDateChange} />
+      <DatePicker />
     </>
   );
 }
