@@ -1,4 +1,5 @@
 import { Button } from './components/Button';
+import { Icon } from './components/Icon';
 import { Input } from './components/Input';
 import { InputLabel } from './components/InputLabel';
 import { Loader } from './components/Loader';
@@ -31,6 +32,8 @@ function App() {
         error
         helperText="Error message"
       />
+      <Icon iconName="plus" size={15} color="white" />
+      <Icon iconName="plus" />
     </>
   );
 }
