@@ -1,0 +1,28 @@
+.primary {
+  padding: 10px 105px;
+  color: #fff;
+  background-color: var(--color-primary-1);
+  border-radius: 15px;
+}
+
+.round {
+  color: #fff;
+  background-color: var(--color-primary-1);
+  border-radius: 50%;
+}
+
+.round:disabled,
+.primary:disabled {
+  background-color: var(--color-primary-2);
+}
+
+.ghost {
+  padding: 10px 105px;
+  color: var(--color-semantic-1);
+  background-color: var(--color-neutral-6);
+}
+
+.ghost:disabled {
+  color: var(--color-neutral-4);
+  background-color: var(--color-neutral-6);
+}
