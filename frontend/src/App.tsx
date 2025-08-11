@@ -1,4 +1,6 @@
 import { Button } from './components/Button';
+import { Input } from './components/Input';
+import { InputLabel } from './components/InputLabel';
 import { Loader } from './components/Loader';
 import { Logo } from './components/Logo';
 
@@ -17,6 +19,18 @@ function App() {
       <Button variant="round" disabled>
         x
       </Button>
+      <InputLabel>Name</InputLabel>
+      <InputLabel htmlFor="name1">Name</InputLabel>
+
+      <Input />
+      <Input helperText="Error message" />
+      <Input
+        type="text"
+        placeholder="Enter name"
+        defaultValue={'John Doe'}
+        error
+        helperText="Error message"
+      />
     </>
   );
 }

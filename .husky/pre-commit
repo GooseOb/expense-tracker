@@ -7,7 +7,7 @@ cd frontend
 npm run build
 npm run format
 npm run lint
-npm run stylelint
+npm run stylelint:fix
 cd ..
 
 git add -A .

@@ -3,6 +3,7 @@
   color: #fff;
   background-color: var(--color-primary-1);
   border-radius: 15px;
+  font-weight: 500;
 }
 
 .round {
@@ -13,13 +14,14 @@
 
 .round:disabled,
 .primary:disabled {
-  background-color: var(--color-primary-2);
+  background-color: #f2f1f9;
 }
 
 .ghost {
   padding: 10px 105px;
   color: var(--color-semantic-1);
   background-color: var(--color-neutral-6);
+  font-weight: 500;
 }
 
 .ghost:disabled {

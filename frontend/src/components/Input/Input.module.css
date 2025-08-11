@@ -1,0 +1,20 @@
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbcbcb;
+  border-radius: 15px;
+  font-weight: 500;
+}
+
+.helper {
+  color: var(--color-primary-1);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
