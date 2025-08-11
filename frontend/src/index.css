@@ -1,22 +1,22 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-
   --color-primary-1: #3629b7;
   --color-primary-2: #5655b9;
   --color-primary-3: #a8a3d7;
   --color-primary-4: #3629b7;
-
   --color-neutral-1: #343434;
   --color-neutral-2: #898989;
   --color-neutral-3: #989898;
   --color-neutral-4: #cacaca;
   --color-neutral-5: #e0e0e0;
   --color-neutral-6: #fff;
-
   --color-semantic-1: #ff4267;
   --color-semantic-2: #0890fe;
   --color-semantic-3: #ffaf2a;
   --color-semantic-4: #52d5ba;
+}
+
+* {
+  font-family: Poppins, sans-serif;
 }
 
 button {
