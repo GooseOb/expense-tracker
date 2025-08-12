@@ -1,4 +1,4 @@
-import { icons } from './icons';
+import { icons } from '@/assets/icons';
 
 export const Icon = ({
   iconName,
