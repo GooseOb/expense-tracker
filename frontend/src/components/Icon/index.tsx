@@ -6,7 +6,11 @@ export type IconProps = {
   color?: string;
 };
 
-export const Icon = ({ iconName, size = 24, color = 'black' }: IconProps) => {
+export const Icon = ({
+  iconName,
+  size = 24,
+  color = 'currentColor',
+}: IconProps) => {
   const SelectedIcon = icons[iconName];
 
   return <SelectedIcon width={size} height={size} style={{ color }} />;

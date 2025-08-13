@@ -50,6 +50,8 @@ function App() {
         rightIcon={{ iconName: 'close', color: '#d1d1d1' }}
       />
       <br />
+      <Input variant="money" />
+      <br />
       <Icon iconName="plus" size={15} color="red" />
       <Icon iconName="plus" />
       <br />
