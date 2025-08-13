@@ -1,9 +1,10 @@
 .input-wrapper {
+  display: flex;
   position: relative;
 }
 
 .input {
-  width: 100%;
+  min-width: 200px;
   padding: 12px;
   border: 1px solid #cbcbcb;
   border-radius: 15px;
