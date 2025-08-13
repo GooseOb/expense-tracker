@@ -37,6 +37,11 @@ function App() {
         error
         helperText="Error message"
       />
+      <Input
+        defaultValue={'Bank'}
+        leftIcon={{ iconName: 'search' }}
+        rightIcon={{ iconName: 'close', color: '#d1d1d1' }}
+      />
       <Icon iconName="plus" size={15} color="white" />
       <Icon iconName="plus" />
       <DatePicker value={selectedDate} onChange={handleDateChange} />

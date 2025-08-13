@@ -1,15 +1,13 @@
-import { icons } from '@/assets/icons';
+import { icons, type IconName } from '@/assets/icons';
 
-export const Icon = ({
-  iconName,
-  size = 24,
-  color = 'currentColor',
-}: {
-  iconName: keyof typeof icons;
+export type IconProps = {
+  iconName: IconName;
   size?: number;
   color?: string;
-}) => {
+};
+
+export const Icon = ({ iconName, size = 24, color = 'black' }: IconProps) => {
   const SelectedIcon = icons[iconName];
 
-  return <SelectedIcon width={size} height={size} style={{ fill: color }} />;
+  return <SelectedIcon width={size} height={size} style={{ color }} />;
 };

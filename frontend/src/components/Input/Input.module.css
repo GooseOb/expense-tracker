@@ -1,9 +1,17 @@
+.input-wrapper {
+  position: relative;
+}
+
 .input {
   width: 100%;
   padding: 12px;
   border: 1px solid #cbcbcb;
   border-radius: 15px;
   font-weight: 500;
+}
+
+.input::placeholder {
+  color: var(--color-neutral-4);
 }
 
 .helper {
@@ -17,4 +25,22 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+
+.icon-left {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon-right {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.icon-left + .input {
+  padding-left: 40px;
 }
