@@ -14,20 +14,27 @@ function App() {
   return (
     <>
       <Logo />
+      <br />
       <Loader />
+      <br />
       <Button>Log in</Button>
       <Button disabled>Log in</Button>
+      <br />
       <Button variant="ghost">Button</Button>
       <Button variant="ghost" disabled>
         Button
       </Button>
+      <br />
       <Button variant="round">x</Button>
       <Button variant="round" disabled>
         x
       </Button>
+      <br />
       <InputLabel>Name</InputLabel>
+      <br />
       <InputLabel htmlFor="name1">Name</InputLabel>
 
+      <br />
       <Input />
       <Input helperText="Error message" />
       <Input
@@ -42,9 +49,12 @@ function App() {
         leftIcon={{ iconName: 'search' }}
         rightIcon={{ iconName: 'close', color: '#d1d1d1' }}
       />
-      <Icon iconName="plus" size={15} color="white" />
+      <br />
+      <Icon iconName="plus" size={15} color="red" />
       <Icon iconName="plus" />
+      <br />
       <DatePicker value={selectedDate} onChange={handleDateChange} />
+      <br />
       <DatePicker />
     </>
   );
