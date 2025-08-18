@@ -1,8 +1,30 @@
 import styles from './Input.module.css';
 import { Icon, type IconProps } from '../Icon';
-import { useRef } from 'react';
+import { createElement, useRef } from 'react';
 
 const currencies = ['USD', 'EUR', 'PLN'];
+
+type ExtendedIconProps = IconProps & {
+  onClick?: () => void;
+};
+
+const getMaybeIconButtonOrSpan = (
+  position: 'left' | 'right',
+  props: ExtendedIconProps | undefined
+) => {
+  if (!props) return null;
+
+  const tag = props.onClick ? 'button' : 'span';
+
+  return createElement(
+    tag,
+    {
+      className: styles['icon-' + position],
+      onClick: props.onClick,
+    },
+    <Icon size={16} {...props} />
+  );
+};
 
 export const Input = ({
   variant = 'primary',
@@ -16,8 +38,8 @@ export const Input = ({
   variant?: 'primary' | 'money';
   helperText?: string;
   error?: boolean;
-  leftIcon?: IconProps;
-  rightIcon?: IconProps;
+  leftIcon?: ExtendedIconProps;
+  rightIcon?: ExtendedIconProps;
   ref?: React.RefObject<HTMLInputElement | null>;
 }) => {
   const inputElement = useRef<HTMLInputElement>(null);
@@ -34,11 +56,7 @@ export const Input = ({
   return (
     <div className={styles.wrapper}>
       <div className={styles['input-wrapper']}>
-        {leftIcon && (
-          <span className={styles['icon-left']}>
-            <Icon size={16} {...leftIcon} />
-          </span>
-        )}
+        {getMaybeIconButtonOrSpan('left', leftIcon)}
         {variant === 'money' ? (
           <>
             <input
@@ -66,11 +84,7 @@ export const Input = ({
         ) : (
           <>
             <input className={styles.input} {...props} />
-            {rightIcon && (
-              <span className={styles['icon-right']}>
-                <Icon size={16} {...rightIcon} />
-              </span>
-            )}
+            {getMaybeIconButtonOrSpan('right', rightIcon)}
           </>
         )}
       </div>

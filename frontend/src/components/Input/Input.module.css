@@ -35,6 +35,7 @@
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
+  background: none;
 }
 
 .icon-right {
@@ -42,6 +43,7 @@
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
+  background: none;
 }
 
 .icon-left + .input {
