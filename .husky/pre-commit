@@ -1,3 +1,13 @@
-npm run format
-npm run lint
+cd backend
+npm run build
+npx lint-staged
 npm run test
+cd ..
+
+cd frontend
+npm run build
+npx lint-staged
+npm run stylelint:fix
+cd ..
+
+git add -A .

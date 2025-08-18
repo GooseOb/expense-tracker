@@ -1,0 +1,32 @@
+.primary {
+  padding: 10px 105px;
+  color: #fff;
+  background-color: var(--color-primary-1);
+  border-radius: 15px;
+  font-weight: 500;
+}
+
+.round {
+  min-width: 25px;
+  min-height: 25px;
+  color: #fff;
+  background-color: var(--color-primary-1);
+  border-radius: 50%;
+}
+
+.round:disabled,
+.primary:disabled {
+  background-color: #f2f1f9;
+}
+
+.ghost {
+  padding: 10px 105px;
+  color: var(--color-semantic-1);
+  background-color: var(--color-neutral-6);
+  font-weight: 500;
+}
+
+.ghost:disabled {
+  color: var(--color-neutral-4);
+  background-color: var(--color-neutral-6);
+}
